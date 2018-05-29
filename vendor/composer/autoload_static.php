@@ -6,6 +6,28 @@ namespace Composer\Autoload;
 
 class ComposerStaticInitf61d43591edfe0d7cf0418ce1a2b353a
 {
+    public static $prefixLengthsPsr4 = array (
+        'W' => 
+        array (
+            'Whoops\\' => 7,
+        ),
+        'P' => 
+        array (
+            'Psr\\Log\\' => 8,
+        ),
+    );
+
+    public static $prefixDirsPsr4 = array (
+        'Whoops\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/filp/whoops/src/Whoops',
+        ),
+        'Psr\\Log\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
+        ),
+    );
+
     public static $prefixesPsr0 = array (
         'M' => 
         array (
@@ -19,6 +41,8 @@ class ComposerStaticInitf61d43591edfe0d7cf0418ce1a2b353a
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
+            $loader->prefixLengthsPsr4 = ComposerStaticInitf61d43591edfe0d7cf0418ce1a2b353a::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitf61d43591edfe0d7cf0418ce1a2b353a::$prefixDirsPsr4;
             $loader->prefixesPsr0 = ComposerStaticInitf61d43591edfe0d7cf0418ce1a2b353a::$prefixesPsr0;
 
         }, null, ClassLoader::class);
