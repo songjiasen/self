@@ -1,11 +1,11 @@
 <?php 
 namespace core\lib;
 
-use core\lib\config;
+use core\lib\Config as Config;
 /**
 * 
 */
-class route
+class Route
 {
 	public $ctrl;
 	public $action;
@@ -23,7 +23,7 @@ class route
 				$this->action = $patharr[1];
 				unset($patharr[1]);
 			}else{
-				$this->action = config::get('ACTION','route');
+				$this->action = Config::get('ACTION','route');
 			}
 
 			//拆分GET参数
@@ -35,8 +35,8 @@ class route
 			}
 
 		}else{
-			$this->ctrl = config::get('CTRL','route');
-			$this->action = config::get('ACTION','route');
+			$this->ctrl = Config::get('CTRL','route');
+			$this->action = Config::get('ACTION','route');
 
 		}
 	}

@@ -22,8 +22,8 @@ if (DEBUG) {
 include CORE.'/common/function.php';
 
 //启动框架
-include CORE.'/kernel.php';
+include CORE.'/Kernel.php';
 
-spl_autoload_register('\core\kernel::load');
+spl_autoload_register('\core\Kernel::load');
 
 \core\kernel::run();

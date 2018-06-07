@@ -1,6 +1,7 @@
 {
 	"require":{
 		"monolog/monolog": "1.0.*",
-		"filp/whoops": "^2.1"
+		"filp/whoops": "^2.1",
+		"catfan/medoo": "^1.5"
 	}
 }

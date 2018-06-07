@@ -5,6 +5,7 @@
 namespace app\ctrl;
 use core\lib\model;
 use core\lib\config;
+use Medoo\Medoo;
 
 class indexCtrl extends \core\kernel
 {
@@ -15,7 +16,8 @@ class indexCtrl extends \core\kernel
 	}
 
 	public function index(){
-		
+
+		p('123');
 	}
 
 	public function view(){
@@ -28,8 +30,22 @@ class indexCtrl extends \core\kernel
 
 	public function sql(){
 		$model = new model();
-		$sql = 'SELECT * FROM user';
-		$data = $model->query($sql);
-		p($data->fetchAll());
+		$data = $model->table('tag')->get();
+		p($data);
+
+	}
+
+	public function medoo(){
+		$database = new Medoo([
+		    'database_type' => 'mysql',
+		    'database_name' => 'blog',
+		    'server' => 'localhost',
+		    'username' => 'root',
+		    'password' => 'root'
+		]);
+		$data = $database->select('user', [
+		    'username'
+		]);
+		p($data);
 	}
 }

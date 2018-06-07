@@ -2,14 +2,16 @@
 
 namespace core;
 
+use core\lib\Route;
+
 /**
 * 
 */
-class kernel
+class Kernel
 {
 	public $assign;
 	public static function run(){
-		$route = new \core\lib\route();
+		$route      = new Route();
 		$ctrlName   = $route->ctrl;
 		$actionName = $route->action;
 		$ctrlFile   = APP.'/ctrl/'.$ctrlName.'Ctrl.php';
@@ -19,7 +21,7 @@ class kernel
 			$ctrl = new $ctrlClass;
 			$ctrl->$actionName();
 		}else{
-			throw new Exception("找不到".$ctrlFile, 1);
+			throw new \Exception("找不到".$ctrlFile, 1);
 		}
 	}
 
